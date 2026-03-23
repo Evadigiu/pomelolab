@@ -1062,9 +1062,13 @@
 
   /* ===== SCROLL ANIMATIONS ===== */
   .reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.hidden {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -1778,17 +1782,23 @@
     link.addEventListener('click', () => mobileNav.classList.remove('open'));
   });
 
-  // Scroll reveal
+  // Scroll reveal — fonctionne aussi en file://
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  reveals.forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window) {
+    reveals.forEach(el => el.classList.add('hidden'));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.remove('hidden');
+            entry.target.classList.add('visible');
+          }, i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  }
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
