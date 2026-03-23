@@ -201,7 +201,7 @@
   .dropdown {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
     background: var(--white);
     border-radius: var(--radius-md);
@@ -210,10 +210,8 @@
     overflow: hidden;
     z-index: 200;
     border: 1px solid rgba(0,0,0,0.06);
-    padding-top: 6px;
-    padding-bottom: 6px;
   }
-  .nav-links > li.open .dropdown { display: block; }
+  .nav-links > li:hover .dropdown { display: block; }
   .dropdown a {
     display: block;
     padding: 0.75rem 1.2rem;
@@ -1064,13 +1062,9 @@
 
   /* ===== SCROLL ANIMATIONS ===== */
   .reveal {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.hidden {
     opacity: 0;
     transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
@@ -1112,33 +1106,27 @@
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="LOGO_POMELO_SANS_FOND.PNG" alt="Pomelo Lab" style="width:44px;height:44px;object-fit:contain;">
+      <img src="logo-pomelo.png" alt="Pomelo Lab" style="width:44px;height:44px;object-fit:contain;">
       <span class="nav-brand">POMELO <span>LAB</span></span>
     </a>
     <ul class="nav-links">
       <li>
         <a href="#services" class="has-dropdown">Nos services</a>
         <div class="dropdown">
-          <a href="#services">Événement sur mesure</a>
-          <a href="#services">Team building</a>
-          <a href="#services">Formations</a>
-          <a href="#packs">Nos packs</a>
-          <a href="#potager">Potager d'entreprise</a>
+          <a href="#potager">🌱 Potager d'entreprise</a>
+          <a href="#packs">📦 Pack potager</a>
+          <a href="#packs">🍂 Pack 4 saisons</a>
+          <a href="#packs">🌸 Pack découverte</a>
+          <a href="#packs">🦋 Pack biodiversité</a>
         </div>
       </li>
-      <li>
-        <a href="#ateliers" class="has-dropdown">Ateliers</a>
-        <div class="dropdown">
-          <a href="#agenda">S'inscrire à un atelier</a>
-          <a href="#ateliers">Nos ateliers phares</a>
-        </div>
-      </li>
+      <li><a href="#ateliers">Ateliers</a></li>
       <li>
         <a href="#apropos" class="has-dropdown">Notre histoire</a>
         <div class="dropdown">
-          <a href="#apropos">L'ADN Pomelo</a>
-          <a href="#temoignages">Réalisations clients</a>
-          <a href="#growcorp">GrowCorp Label</a>
+          <a href="#apropos">🍊 L'ADN Pomelo</a>
+          <a href="#growcorp">🏷️ GrowCorp Label</a>
+          <a href="#temoignages">💬 Réalisations clients</a>
         </div>
       </li>
       <li><a href="https://www.pomelo-potager.com/blog" target="_blank">Blog</a></li>
@@ -1150,20 +1138,17 @@
   </div>
   <div class="nav-mobile" id="navMobile">
     <span class="mobile-section">Nos services</span>
-    <a href="#services">Événement sur mesure</a>
-    <a href="#services">Team building</a>
-    <a href="#services">Formations</a>
-    <a href="#packs">Nos packs</a>
-    <a href="#potager">Potager d'entreprise</a>
-    <span class="mobile-section">Ateliers</span>
-    <a href="#agenda">S'inscrire à un atelier</a>
-    <a href="#ateliers">Nos ateliers phares</a>
-    <span class="mobile-section">Notre histoire</span>
-    <a href="#apropos">L'ADN Pomelo</a>
-    <a href="#temoignages">Réalisations clients</a>
-    <a href="#growcorp">GrowCorp Label</a>
-    <a href="https://www.pomelo-potager.com/blog" target="_blank">Blog</a>
-    <a href="#contact" style="color: var(--pink); font-weight: 500;">Nous contacter</a>
+    <a href="#potager">🌱 Potager d'entreprise</a>
+    <a href="#packs">📦 Nos packs annuels</a>
+    <span class="mobile-section">Explorer</span>
+    <a href="#ateliers">🍃 Ateliers nature</a>
+    <a href="#agenda">📅 Agenda</a>
+    <span class="mobile-section">Pomelo Lab</span>
+    <a href="#apropos">🍊 Notre histoire</a>
+    <a href="#growcorp">🏷️ GrowCorp Label</a>
+    <a href="#temoignages">💬 Réalisations</a>
+    <a href="https://www.pomelo-potager.com/blog" target="_blank">✍️ Blog</a>
+    <a href="#contact" style="color: var(--pink); font-weight: 500;">→ Nous contacter</a>
   </div>
 </nav>
 
@@ -1432,6 +1417,72 @@
   <p class="slogan-sub">Des ateliers qui ont du goût. Des équipes qui ont du cœur.</p>
 </div>
 
+<!-- ===== ATELIERS ===== -->
+<section class="ateliers" id="ateliers">
+  <div class="container">
+    <p class="section-label reveal">Animations &amp; ateliers</p>
+    <h2 class="section-title reveal">DES EXPÉRIENCES<br><em>QUI POUSSENT.</em></h2>
+    <p class="section-desc reveal">À la carte ou en abonnement, nos ateliers s'adaptent à votre équipe, votre saison et votre budget.</p>
+    <div class="ateliers-grid">
+      <div class="atelier-card reveal">
+        <div class="atelier-color green"></div>
+        <div class="atelier-body">
+          <p class="atelier-tag">Printemps · Été</p>
+          <h3>Atelier semis &amp; plantations</h3>
+          <p>Tomates cerises, herbes aromatiques, fleurs comestibles… chaque participant repart avec ses semis et ses connaissances.</p>
+          <div class="atelier-details">
+            <span class="atelier-detail">⏱ 2h</span>
+            <span class="atelier-detail">👥 5–30 pers.</span>
+            <span class="atelier-detail">📍 Chez vous ou extérieur</span>
+          </div>
+        </div>
+      </div>
+      <div class="atelier-card reveal">
+        <div class="atelier-color pink"></div>
+        <div class="atelier-body">
+          <p class="atelier-tag">Toute l'année</p>
+          <h3>Bouquet personnalisé</h3>
+          <p>Créer un bouquet de saison avec des fleurs et végétaux locaux. Un atelier créatif, sensoriel et mémorable.</p>
+          <div class="atelier-details">
+            <span class="atelier-detail">⏱ 1h30</span>
+            <span class="atelier-detail">👥 5–25 pers.</span>
+            <span class="atelier-detail">📍 Indoor ou outdoor</span>
+          </div>
+        </div>
+      </div>
+      <div class="atelier-card reveal">
+        <div class="atelier-color yellow"></div>
+        <div class="atelier-body">
+          <p class="atelier-tag">Automne · Hiver</p>
+          <h3>Tablier &amp; starter pack jardinier</h3>
+          <p>Créer son tablier personnalisé et assembler son kit de démarrage pour jardiner à la maison. Parfait pour les events de fin d'année.</p>
+          <div class="atelier-details">
+            <span class="atelier-detail">⏱ 2h</span>
+            <span class="atelier-detail">👥 5–20 pers.</span>
+            <span class="atelier-detail">📍 Indoor</span>
+          </div>
+        </div>
+      </div>
+      <div class="atelier-card reveal">
+        <div class="atelier-color dark"></div>
+        <div class="atelier-body">
+          <p class="atelier-tag">Sur-mesure</p>
+          <h3>Cuisine sauvage &amp; cueillette</h3>
+          <p>Partir à la cueillette dans la nature, identifier les plantes comestibles et les cuisiner ensemble. Une aventure collective unique.</p>
+          <div class="atelier-details">
+            <span class="atelier-detail">⏱ 3h</span>
+            <span class="atelier-detail">👥 8–20 pers.</span>
+            <span class="atelier-detail">📍 En nature</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2.5rem;">
+      <a href="#contact" class="btn-primary">Demander un atelier sur-mesure</a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== AGENDA ===== -->
 <section class="agenda" id="agenda">
   <div class="container">
@@ -1484,72 +1535,6 @@
           <a href="https://www.instagram.com/pomelopotager/" target="_blank">Suivre sur Instagram →</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ATELIERS ===== -->
-<section class="ateliers" id="ateliers">
-  <div class="container">
-    <p class="section-label reveal">Nos ateliers phares</p>
-    <h2 class="section-title reveal">DES EXPÉRIENCES<br><em>QUI POUSSENT.</em></h2>
-    <p class="section-desc reveal">Conçus pour les entreprises et collectivités, nos ateliers phares sont clés en main, animés par nos experts et adaptables à toutes les tailles de groupes.</p>
-    <div class="ateliers-grid">
-      <div class="atelier-card reveal">
-        <div class="atelier-color pink"></div>
-        <div class="atelier-body">
-          <p class="atelier-tag">Toute l'année · Convivial</p>
-          <h3>Apéromate</h3>
-          <p>Un apéritif végétal et festif autour de préparations maison — pesto, tartinades, huiles aromatisées. On cuisine ensemble avec les plantes du jardin et on déguste. L'atelier idéal pour briser la glace et créer du lien.</p>
-          <div class="atelier-details">
-            <span class="atelier-detail">2h</span>
-            <span class="atelier-detail">8–40 pers.</span>
-            <span class="atelier-detail">Indoor ou outdoor</span>
-          </div>
-        </div>
-      </div>
-      <div class="atelier-card reveal">
-        <div class="atelier-color green"></div>
-        <div class="atelier-body">
-          <p class="atelier-tag">Printemps · Été · Dynamique</p>
-          <h3>Semis-Marathon</h3>
-          <p>Un format sportif et ludique autour des semis — chaque équipe plante, étiquette et prend soin de ses végétaux en un temps record. Un challenge collectif qui mêle stratégie, soin du vivant et bonne humeur.</p>
-          <div class="atelier-details">
-            <span class="atelier-detail">2h</span>
-            <span class="atelier-detail">10–50 pers.</span>
-            <span class="atelier-detail">Outdoor recommandé</span>
-          </div>
-        </div>
-      </div>
-      <div class="atelier-card reveal">
-        <div class="atelier-color yellow"></div>
-        <div class="atelier-body">
-          <p class="atelier-tag">Automne · Hiver · Zen</p>
-          <h3>Kokédama</h3>
-          <p>L'art japonais de la sphère de mousse. Chaque participant crée sa propre boule végétale à ramener chez soi. Un atelier manuel, méditatif et esthétique — parfait pour les séminaires et fins d'année.</p>
-          <div class="atelier-details">
-            <span class="atelier-detail">2h</span>
-            <span class="atelier-detail">5–25 pers.</span>
-            <span class="atelier-detail">Indoor</span>
-          </div>
-        </div>
-      </div>
-      <div class="atelier-card reveal">
-        <div class="atelier-color dark"></div>
-        <div class="atelier-body">
-          <p class="atelier-tag">Toute l'année · Créatif</p>
-          <h3>Personnalisation de tabliers</h3>
-          <p>Chaque participant personnalise son propre tablier de jardinage — tampons végétaux, broderie ou peinture textile. Un souvenir unique et durable, symbole d'une journée mémorable ensemble.</p>
-          <div class="atelier-details">
-            <span class="atelier-detail">2h</span>
-            <span class="atelier-detail">5–30 pers.</span>
-            <span class="atelier-detail">Indoor</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align: center; margin-top: 2.5rem;">
-      <a href="#contact" class="btn-primary">Demander un atelier sur-mesure</a>
     </div>
   </div>
 </section>
@@ -1665,7 +1650,7 @@
         <p>Vous avez une idée, un budget, un séminaire qui approche ? Dites-nous tout. On vous répond sous 48h avec une proposition adaptée.</p>
         <div class="contact-detail">
           <span>📧</span>
-          <span><strong>Email :</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c2a1adacb6a3a1b682b2adafa7aeadefb2adb6a3a5a7b0eca1adaf">[email&#160;protected]</a></span>
+          <span><strong>Email :</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d9bab6b7adb8baad99a9b6b4bcb5b6f4a9b6adb8bebcabf7bab6b4">[email&#160;protected]</a></span>
         </div>
         <div class="contact-detail">
           <span>📍</span>
@@ -1781,20 +1766,6 @@
     nav.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  // Dropdowns — JS avec délai pour éviter fermeture en passant la souris
-  document.querySelectorAll('.nav-links > li').forEach(li => {
-    let timer;
-    const openMenu  = () => { clearTimeout(timer); li.classList.add('open'); };
-    const closeMenu = () => { timer = setTimeout(() => li.classList.remove('open'), 150); };
-    li.addEventListener('mouseenter', openMenu);
-    li.addEventListener('mouseleave', closeMenu);
-    const dd = li.querySelector('.dropdown');
-    if (dd) {
-      dd.addEventListener('mouseenter', openMenu);
-      dd.addEventListener('mouseleave', closeMenu);
-    }
-  });
-
   // Mobile nav toggle
   const toggle = document.getElementById('navToggle');
   const mobileNav = document.getElementById('navMobile');
@@ -1807,23 +1778,17 @@
     link.addEventListener('click', () => mobileNav.classList.remove('open'));
   });
 
-  // Scroll reveal — fonctionne aussi en file://
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    reveals.forEach(el => el.classList.add('hidden'));
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.remove('hidden');
-            entry.target.classList.add('visible');
-          }, i * 60);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-    reveals.forEach(el => observer.observe(el));
-  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
